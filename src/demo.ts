@@ -14,3 +14,7 @@ type Hobby = string | undefined;
 type NumberOfSomething = 50 |100;
 let y: NumberOfSomething = 50;
 
+
+const sElement: HTMLElement = document.querySelector("section") as HTMLElement;
+
+sElement.innerHTML = "test";
