@@ -40,7 +40,6 @@ function getScientistName():void{
         scientistOption.append(scientistList);
 
         scientistList.addEventListener('click', listenerFunction);
-
     } 
 }
 
@@ -48,31 +47,29 @@ function getScientistName():void{
 function listenerFunction(this:HTMLElement, ev: Event){
     ev.preventDefault();
     const scientistName:string = this.innerHTML;
+    scientistInfo.innerHTML = " ";
     showInfo(scientistName); 
 }
 
-const scientistInfo = document.getElementById("infoCard") as HTMLSelectElement;
 
 function showInfo(scientistName:string):void{
     let evilScientist : any;
     evilScientist = arrScientists.find(t=>t.name === scientistName);
-    console.log(typeof evilScientist);
-
-    //const scientistInfoCard = document.createElement("h3");
-    //scientistInfoCard.innerHTML = evilScientist.name; 
-    //scientistInfo.append(scientistInfoCard);
+    //console.log(typeof evilScientist);
 
     let property: keyof typeof evilScientist;
     for (property in evilScientist){
-        console.log(`${property}: ${evilScientist[property]}`);
-
+        //console.log(`${property}: ${evilScientist[property]}`);
         const scientistInfoCard = document.createElement("p");
         scientistInfoCard.innerHTML = (`${property}: ${evilScientist[property]}`); 
         scientistInfo.append(scientistInfoCard);
-    }
+    } 
 
-    
 }
+
+
+//const iElement = document.querySelector("#scientistName") as HTMLInputElement;
+//iElement.value = "gugge";
 
 
 // Program start
