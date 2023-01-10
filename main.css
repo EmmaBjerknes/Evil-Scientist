@@ -1,0 +1,30 @@
+#scientistDB{
+    background-color: azure;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 20px;
+    column-gap: 15px;
+}
+
+section{
+    background-color: aquamarine;
+    text-align: center;
+}
+
+form{
+    display: grid;
+    grid-template-rows: auto;
+    margin: 15px;
+    padding: 5px;
+    border: 2px solid black;
+}
+
+#submit{
+    max-width: max-content;
+    margin: auto;
+}
+
+textarea{
+    min-width: 200px;
+    min-height: 100px;
+}

@@ -14,10 +14,43 @@
 
     <main>
         <h1>Evil Scientists</h1>
-        <article>
-            <section></section>
-            <section></section>
-            <section></section>
+        <article id="scientistDB">
+            <section class="addScientistSection">
+                <h2>Add Scientist</h2>
+                <form>
+                    <p>
+                        <label for="scientistName">Name:</label>
+                        <input type="text" name="scientistName">
+                    </p>
+                    <p>
+                        <label for="scientistAge">Age:</label>
+                        <input type="number" name="scientistAge" min="0" max="100">
+                    </p>
+                    <p>
+                        <label for="scientistNrMinion">Number of Minions:</label>
+                        <input type="text" name="scientistNrMinion">
+                    </p>
+                    <p>
+                        <label for="scientistDescription">Description:</label>
+                        <textarea name="scientistDescription">Add a short description here.</textarea>
+                    </p>
+
+                    <input type="submit" value="Submit" id="submit">
+
+
+                </form>
+            </section>
+
+            <section class="allScientistSection">
+                <h2>All Scientists</h2>
+                <div>Nr1</div>
+                <div>Nr2</div>
+            </section>
+
+            <section class="infoScientistSection">
+                <h2>More information</h2>
+                <div>Infoinfoinfo</div>
+            </section>
         </article>
     </main>
 
