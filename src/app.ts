@@ -30,7 +30,9 @@ const arrScientists: Scientist[] =[
 ];
 
 
-let scientistOption = document.getElementById("scientistListDiv") as HTMLDivElement;
+const scientistOption = document.getElementById("scientistListDiv") as HTMLDivElement;
+const scientistInfo = document.getElementById("infoCard") as HTMLDivElement;
+const submitBtn: HTMLInputElement = document.getElementById("submit") as HTMLInputElement;
 
 function getScientistName():void{
     for(const scientist of arrScientists){
@@ -67,9 +69,12 @@ function showInfo(scientistName:string):void{
 
 }
 
+submitBtn.addEventListener('click', submitForm);
+function submitForm(x:any):void{
+    x.preventDefault();
+    console.log("clicked submit!");
+}
 
-//const iElement = document.querySelector("#scientistName") as HTMLInputElement;
-//iElement.value = "gugge";
 
 
 // Program start
