@@ -27,9 +27,9 @@ const arrScientists: Scientist[] =[
 ];
 
 
-const scientistOption: HTMLDivElement = document.getElementById("scientistListDiv") as HTMLDivElement;
-const scientistInfo: HTMLDivElement = document.getElementById("infoCard") as HTMLDivElement;
-const submitBtn: HTMLInputElement = document.getElementById("submit") as HTMLInputElement;
+const scientistOption = document.getElementById("scientistListDiv") as HTMLDivElement;
+const scientistInfo = document.getElementById("infoCard") as HTMLDivElement;
+const submitBtn = document.getElementById("submit") as HTMLInputElement;
 
 function getScientistName():void{
     for(const scientist of arrScientists){
@@ -38,18 +38,14 @@ function getScientistName():void{
         scientistList.style.border ="2px solid black"
         scientistOption.append(scientistList);
 
-        scientistList.addEventListener('click', listenerFunction);
+        scientistList.addEventListener('click', function(event){
+            event.preventDefault();
+            const scientistName:string = this.innerHTML;
+            scientistInfo.innerHTML = " ";
+            showInfo(scientistName); 
+        });
     } 
 }
-
-
-function listenerFunction(this:HTMLElement, ev: Event){
-    ev.preventDefault();
-    const scientistName:string = this.innerHTML;
-    scientistInfo.innerHTML = " ";
-    showInfo(scientistName); 
-}
-
 
 function showInfo(scientistName:string):void{
     let evilScientist:Scientist;
@@ -65,16 +61,12 @@ function showInfo(scientistName:string):void{
     } 
 }
 
-submitBtn.addEventListener('click', submitForm);
-
-function submitForm(this:HTMLElement, ev: Event):void{
-    ev.preventDefault();
-    // console.log("clicked submit!");
+submitBtn.addEventListener('click', function(event){
+    event.preventDefault();
     getInputFromForm();
-    
-    let resetForm: HTMLFormElement = document.querySelector('form') as HTMLFormElement; 
+    const resetForm = document.querySelector('form') as HTMLFormElement; 
     resetForm.reset();
-}
+})
 
 function getInputFromForm():void{
     const inputNewScientistName: string = (document.querySelector("#scientistName") as HTMLInputElement).value;
@@ -103,6 +95,5 @@ function addScientist(
     getScientistName();
 }      
 
-// get form reset();
 // Program start
 getScientistName();
