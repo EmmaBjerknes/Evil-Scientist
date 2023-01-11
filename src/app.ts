@@ -71,6 +71,9 @@ function submitForm(this:HTMLElement, ev: Event):void{
     ev.preventDefault();
     // console.log("clicked submit!");
     getInputFromForm();
+    
+    let resetForm: HTMLFormElement = document.querySelector('form') as HTMLFormElement; 
+    resetForm.reset();
 }
 
 function getInputFromForm():void{
@@ -87,19 +90,19 @@ function addScientist(
     age: number,
     minions: number,
     description: string
-    ):void
-    {
-        const m: Scientist ={
-            name:name,
-            age:age,
-            minions:minions,
-            description:description
-        }
-        arrScientists.push(m);
-        //console.log(arrScientists);
-        scientistOption.innerHTML= " ";
-        getScientistName();
-    }      
+    ):void{
+    const m: Scientist ={
+        name:name,
+        age:age,
+        minions:minions,
+        description:description
+    }
+    arrScientists.push(m);
+    console.log(arrScientists);
+    scientistOption.innerHTML= " ";
+    getScientistName();
+}      
 
+// get form reset();
 // Program start
 getScientistName();
