@@ -11,27 +11,24 @@ const arrScientists: Scientist[] =[
         age: 34,
         minions: 1,
         description: "Scientist who searches for alteration of the human body and to separate the evil from the good"
-
     },
     {
         name: "Professor Moriarty ",
         age: 56,
         minions: 23,
         description: "Evil genius, loves murders and kittens"
-
     },
     {
         name: "Dr. Julius No",
         age: 49,
         minions: 4,
         description: "Brilliant scientist with a implied Napoleon complex."
-
     },
 ];
 
 
-const scientistOption = document.getElementById("scientistListDiv") as HTMLDivElement;
-const scientistInfo = document.getElementById("infoCard") as HTMLDivElement;
+const scientistOption: HTMLDivElement = document.getElementById("scientistListDiv") as HTMLDivElement;
+const scientistInfo: HTMLDivElement = document.getElementById("infoCard") as HTMLDivElement;
 const submitBtn: HTMLInputElement = document.getElementById("submit") as HTMLInputElement;
 
 function getScientistName():void{
@@ -55,8 +52,8 @@ function listenerFunction(this:HTMLElement, ev: Event){
 
 
 function showInfo(scientistName:string):void{
-    let evilScientist : any;
-    evilScientist = arrScientists.find(t=>t.name === scientistName);
+    let evilScientist:Scientist;
+    evilScientist = arrScientists.find(t=>t.name === scientistName) as Scientist;
     //console.log(typeof evilScientist);
 
     let property: keyof typeof evilScientist;
@@ -66,16 +63,43 @@ function showInfo(scientistName:string):void{
         scientistInfoCard.innerHTML = (`${property}: ${evilScientist[property]}`); 
         scientistInfo.append(scientistInfoCard);
     } 
-
 }
 
 submitBtn.addEventListener('click', submitForm);
-function submitForm(x:any):void{
-    x.preventDefault();
-    console.log("clicked submit!");
+
+function submitForm(this:HTMLElement, ev: Event):void{
+    ev.preventDefault();
+    // console.log("clicked submit!");
+    getInputFromForm();
 }
 
+function getInputFromForm():void{
+    const inputNewScientistName: string = (document.querySelector("#scientistName") as HTMLInputElement).value;
+    const inputNewScientistAge: number = (document.querySelector("#scientistAge") as HTMLInputElement).valueAsNumber;
+    const inputNewScientistNrMinion: number = (document.querySelector("#scientistNrMinion") as HTMLInputElement).valueAsNumber;
+    const inputNewScientistDescription: string = (document.querySelector("#scientistDescription") as HTMLInputElement).value;
 
+    addScientist(inputNewScientistName,inputNewScientistAge, inputNewScientistNrMinion, inputNewScientistDescription);   
+}
+
+function addScientist(
+    name: string,
+    age: number,
+    minions: number,
+    description: string
+    ):void
+    {
+        const m: Scientist ={
+            name:name,
+            age:age,
+            minions:minions,
+            description:description
+        }
+        arrScientists.push(m);
+        //console.log(arrScientists);
+        scientistOption.innerHTML= " ";
+        getScientistName();
+    }      
 
 // Program start
 getScientistName();
