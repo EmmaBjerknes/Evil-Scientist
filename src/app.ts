@@ -1,6 +1,7 @@
 const scientistListBox = document.getElementById("scientistListDiv") as HTMLDivElement;
 const scientistInfoBox = document.getElementById("infoCard") as HTMLDivElement;
 const submitBtn = document.getElementById("submit") as HTMLButtonElement;
+const resetForm = document.querySelector('form') as HTMLFormElement; 
 
 type Scientist = {
     name: string,
@@ -88,6 +89,7 @@ let scientistDB:{
                 scientistDB.arrScientists.push(m);
                 scientistListBox.innerHTML= " ";
                 scientistDB.showScientistName();
+                resetForm.reset();
             }else{
                 alert("Sorry, you have to fill in every input. Thanks!")
             }
@@ -100,8 +102,6 @@ let scientistDB:{
 submitBtn.addEventListener('click', function(event){
     event.preventDefault();
     scientistDB.addScientist();
-    const resetForm = document.querySelector('form') as HTMLFormElement; 
-    resetForm.reset();
 })
 
 // Program start
