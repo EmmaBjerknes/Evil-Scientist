@@ -63,13 +63,12 @@ let scientistDB:{
             const printInfo: string = (`${prettyText}: ${evilScientist[property]}`);
             if(prettyText === "Age"){
                 scientistInfoCard.innerHTML = (`${printInfo} years old.`); 
-
             }else if (prettyText === "Minions"){
                 scientistInfoCard.innerHTML = (`${printInfo} henchmen.`);
             }else{
                 scientistInfoCard.innerHTML = printInfo; 
             }
-                scientistInfoBox.append(scientistInfoCard);
+            scientistInfoBox.append(scientistInfoCard);
         } 
     },
     addScientist: function ():void{
@@ -89,6 +88,8 @@ let scientistDB:{
                 scientistDB.arrScientists.push(m);
                 scientistListBox.innerHTML= " ";
                 scientistDB.showScientistName();
+            }else{
+                alert("Sorry, you have to fill in every input. Thanks!")
             }
         }else{
             alert("Sorry, you have to fill in every input. Thanks!")
