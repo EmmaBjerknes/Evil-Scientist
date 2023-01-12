@@ -73,19 +73,19 @@ let scientistDB:{
         } 
     },
     addScientist: function ():void{
-        const newSName = document.querySelector("#scientistName") as HTMLInputElement;
-        const newSAge = document.querySelector("#scientistAge") as HTMLInputElement;
-        const newSMinion = (document.querySelector("#scientistNrMinion") as HTMLInputElement);
-        const newSDescription = (document.querySelector("#scientistDescription") as HTMLTextAreaElement);
+        const newSName: string = (document.querySelector("#scientistName") as HTMLInputElement).value;
+        const newSAge: number = (document.querySelector("#scientistAge") as HTMLInputElement).valueAsNumber;
+        const newSMinion: number = (document.querySelector("#scientistNrMinion") as HTMLInputElement).valueAsNumber;
+        const newSDescription:string = (document.querySelector("#scientistDescription") as HTMLTextAreaElement).value;
         
         const m: Scientist ={
-            name:newSName.value,
-            age:newSAge.valueAsNumber,
-            minions:newSMinion.valueAsNumber,
-            description:newSDescription.value
+            name:newSName,
+            age:newSAge,
+            minions:newSMinion,
+            description:newSDescription
         }
-        if(newSName.value && newSDescription.value !== ""){
-            if(!Number.isNaN(newSAge.valueAsNumber) && !Number.isNaN(newSMinion.valueAsNumber)){
+        if(newSName && newSDescription !== ""){
+            if(!Number.isNaN(newSAge) && !Number.isNaN(newSMinion)){
                 scientistDB.arrScientists.push(m);
                 scientistListBox.innerHTML= " ";
                 scientistDB.showScientistName();
