@@ -75,9 +75,15 @@ let scientistDB:{
             minions:newSMinion.valueAsNumber,
             description:newSDescription.value
         }
-        scientistDB.arrScientists.push(m);
-        scientistListBox.innerHTML= " ";
-        scientistDB.showScientistName();
+        if(newSName.value && newSDescription.value !== ""){
+            if(!Number.isNaN(newSAge.valueAsNumber) && !Number.isNaN(newSMinion.valueAsNumber)){
+                scientistDB.arrScientists.push(m);
+                scientistListBox.innerHTML= " ";
+                scientistDB.showScientistName();
+            }
+        }else{
+            alert("Sorry, you have to fill in every input. Thanks!")
+        }
     }
 }
 
