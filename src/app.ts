@@ -56,11 +56,20 @@ let scientistDB:{
     
         let property: keyof typeof evilScientist;
         for (property in evilScientist){
-            //console.log(`${property}: ${evilScientist[property]}`);
+
             const scientistInfoCard = document.createElement("p");
             const prettyText = property.charAt(0).toUpperCase() + property.slice(1);
-            scientistInfoCard.innerHTML = (`${prettyText}: ${evilScientist[property]}`); 
-            scientistInfoBox.append(scientistInfoCard);
+
+            const printInfo: string = (`${prettyText}: ${evilScientist[property]}`);
+            if(prettyText === "Age"){
+                scientistInfoCard.innerHTML = (`${printInfo} years old.`); 
+
+            }else if (prettyText === "Minions"){
+                scientistInfoCard.innerHTML = (`${printInfo} henchmen.`);
+            }else{
+                scientistInfoCard.innerHTML = printInfo; 
+            }
+                scientistInfoBox.append(scientistInfoCard);
         } 
     },
     addScientist: function ():void{
