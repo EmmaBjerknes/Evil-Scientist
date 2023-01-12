@@ -1,22 +1,37 @@
-#scientistDB{
+body{
     background-color: azure;
+    max-width: 900px;
+    word-break: break-word;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+}
+
+#scientistDB{
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
     padding: 20px;
-    column-gap: 15px;
+    row-gap: 15px;
 }
 
 section{
+    box-shadow: grey 3px 3px 3px;
+    padding: 5px;
     background-color: aquamarine;
-    text-align: center;
 }
+
+h2{text-align: center;}
 
 form{
     display: grid;
     grid-template-rows: auto;
-    margin: 15px;
-    padding: 5px;
-    border: 2px solid black;
+}
+
+p{margin-top: auto;}
+
+p > *{
+    display: flex;
+    flex-direction: row;
+    min-width: -webkit-fill-available;
 }
 
 #submit{
@@ -24,7 +39,25 @@ form{
     margin: auto;
 }
 
-textarea{
-    min-width: 200px;
-    min-height: 100px;
+.scientistdiv{
+    margin: 15px;
+    padding: 15px;
+    box-shadow: 3px 3px 3px darkgray;
+    border-radius: 10px;
+    text-align: center;
+    background-color: turquoise;
+}
+
+.scientistdiv:hover{cursor: pointer;}
+
+#infoCard{padding: 15px;}
+
+@media screen and (min-width: 768px) {
+    #scientistDB{
+        background-color: azure;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        padding: 20px;
+        column-gap: 15px;
+    }
 }

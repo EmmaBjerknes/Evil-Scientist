@@ -37,18 +37,18 @@ let scientistDB:{
     ],
     showScientistName: function():void{
         for(const scientist of this.arrScientists){
-            const scientistList = document.createElement("div");
-            scientistList.innerHTML = scientist.name;
-            scientistList.style.border ="2px solid black"
-            scientistListBox.append(scientistList);
+            const scientistDiv = document.createElement("div");
+            scientistDiv.innerHTML = scientist.name;
+            scientistDiv.className = "scientistdiv";
+            scientistListBox.append(scientistDiv);
     
-            scientistList.addEventListener('click', function(event){
+            scientistDiv.addEventListener('click', function(event){
                 event.preventDefault();
                 const scientistName:string = this.innerHTML;
                 scientistInfoBox.innerHTML = " ";
                 scientistDB.showInfo(scientistName); 
             });
-        } 
+        }
     },
     showInfo: function(scientistName:string):void{
         let evilScientist:Scientist;
