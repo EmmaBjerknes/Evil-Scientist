@@ -84,15 +84,11 @@ let scientistDB:{
             minions:newSMinion,
             description:newSDescription
         }
-        if(newSName && newSDescription !== ""){
-            if(!Number.isNaN(newSAge) && !Number.isNaN(newSMinion)){
-                scientistDB.arrScientists.push(m);
-                scientistListBox.innerHTML= " ";
-                scientistDB.showScientistName();
-                resetForm.reset();
-            }else{
-                alert("Sorry, you have to fill in every input. Thanks!")
-            }
+        if(newSName && newSDescription !== "" && !Number.isNaN(newSAge) && !Number.isNaN(newSMinion)){
+            scientistDB.arrScientists.push(m);
+            scientistListBox.innerHTML= " ";
+            scientistDB.showScientistName();
+            resetForm.reset();
         }else{
             alert("Sorry, you have to fill in every input. Thanks!")
         }
